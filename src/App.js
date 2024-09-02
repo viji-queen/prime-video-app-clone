@@ -1,23 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './Home/Home';
+import Nav from './components/Nav'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Movies from './components/Movies'
+import LiveTV from './components/LiveTV'
+import TVShows from './components/TVShows'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path:'/',
+      element:<Home/>,
+
+    },
+    {
+      path:'movies',
+      element:<Movies />
+    },
+    {
+      path:'live-tv',
+      element:<LiveTV />
+    },
+    {
+      path:'tv-shows',
+      element:<TVShows />
+    }
+  ])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+   {/* <RouterProvider router={router}/> */}
+   <Nav/>
+   <Home/>
     </div>
   );
 }
