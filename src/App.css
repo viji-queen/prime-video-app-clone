@@ -1,8 +1,8 @@
 .App{
-  background-color: #234567;
+  background-color: black;
   font-family: 'Montserrat', sans-serif;
-/* font-weight: 400; Regular */
 font-weight: 700; /* Bold */
+color: white;
 }
 h1{
 text-transform: uppercase;
@@ -14,13 +14,12 @@ background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px;
+  padding: 0 20px;
   list-style: none;
-  position: fixed; /* add this */
-  top: 0; /* add this */
-  width: 100%; /* add this */
-  z-index: 1000; /* add this, optional */
-  /* background-color: rgba(0, 0, 0, 0.5); */
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
+  z-index: 1000; 
 
 }
 .nav-bar::-ms-backdrop{
@@ -30,30 +29,15 @@ background-color: rgba(0, 0, 0, 0.5);
   width: auto;
   height: auto;
   padding: 15px;
-  border-radius: 10px;
   background-color: transparent;
   color: white;
   border: none;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500; /* Bold */
-
-}
-.left {
-  display: flex;
-  flex-direction: row;
-margin-left: 0;
+  border-radius: 10px;
 
 }
 
-.right {
-  display: flex;
-  flex-direction: row;
- margin-right: 0;
-}
-
-.left button, .right button {
-  margin-right: 10px; /*  Add some spacing between buttons */
-}
 .nav-bar button:hover{
   background-color: white;
   color: black;
@@ -81,4 +65,11 @@ margin-left: 0;
   background-color: white;
   color: black;
   
+}
+.carousel-container {
+  width: 100%;
+  margin: auto;
+}
+.heading{
+  margin: 20px;
 }

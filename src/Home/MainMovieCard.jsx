@@ -1,9 +1,9 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-function MainMovieCard({img, title, plot}) {
+function MainMovieCard({img, title, plot,size}) {
     const baseUrl = 'https://image.tmdb.org/t/p/';
-  const size = 'w500'; // You can change this to 'w200', 'original', etc.
+  // const size = 'w500'; // You can change this to 'w200', 'original', etc.
   const posterUrl = `${baseUrl}${size}${img}`;
   const containerStyle = {
     backgroundImage: `url(${posterUrl})`,
@@ -11,7 +11,7 @@ function MainMovieCard({img, title, plot}) {
     backgroundPosition: 'center',
     position: 'relative',
     width: '100%',
-    height: '500px', // Adjust the height as needed
+    height: '500px',
     color: 'white',
     display: 'flex',
     alignItems: 'center',

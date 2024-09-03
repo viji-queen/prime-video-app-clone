@@ -1,46 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useQuery, gql } from "@apollo/client";
 import MainMovieCard from "./MainMovieCard";
 import Carousel from 'react-bootstrap/Carousel';
-const GET_DATA = gql`
-  query GetData {
-    yourQueryField {
-      id
-      name
-    }
-  }
-`;
+import useFetch from "../custom/useFetch";
+
 function Main() {
   const baseUrl = "https://api.themoviedb.org/3/movie/top_rated";
   const API_KEY = process.env.REACT_APP_API_KEY;
 
-  const [movies, setMovies] = useState([]);
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${baseUrl}?api_key=${API_KEY}`);
-      const moviesJson = await response.json();
-      setMovies(moviesJson.results);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
+const movies = useFetch(`${baseUrl}?api_key=${API_KEY}`)
+
 
   return (
    <>
       <Carousel>
       {movies.map((movie) => (
-       <Carousel.Item interval={1500}>
+       <Carousel.Item interval={1500} key={movie.id}>
          <MainMovieCard
           title={movie.title}
           plot={movie.overview}
           img={movie.backdrop_path}
+          size={'w500'}
         />
        </Carousel.Item >
       ))}
       </Carousel>
+      {/* {data &&
+        data.map((item) => {
+          return <p key={item.id}>{item.title}</p>;
+        })} */}
 </>
   );
 }
